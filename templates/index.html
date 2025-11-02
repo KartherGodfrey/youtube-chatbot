@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>🤖 Build & Chat with Your AI</title>
+  <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+  <div class="container">
+    <h1>🤖 Build Your AI Chatbot</h1>
+
+    <div id="setup-section">
+      <input id="chatbot_name" placeholder="Enter chatbot name...">
+      <div id="video_inputs">
+        <div class="video-group">
+          <input placeholder="YouTube URL">
+          <input placeholder="Video Name">
+        </div>
+      </div>
+      <button id="add_video">+ Add More</button>
+      <button id="train_btn">🚀 Train Chatbot</button>
+      <div id="loader" class="hidden"></div>
+      <p id="status"></p>
+    </div>
+
+    <div id="chat-section" class="hidden">
+      <h2>💬 Chat with Your AI</h2>
+      <div id="chat-box">
+        <p class="bot">🤖 Bot: Hello! I'm ready. Ask me anything related to your videos.</p>
+      </div>
+      <input id="user-input" placeholder="Type your question...">
+      <button id="send-btn">Send</button>
+    </div>
+  </div>
+
+  <script src="{{ url_for('static', filename='script.js') }}"></script>
+</body>
+</html>
