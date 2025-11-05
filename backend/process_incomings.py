@@ -46,8 +46,9 @@ def chat_with_gemini(user_query, df_path="embeddings.joblib", top_results=5):
     )
 
     prompt = f"""
-You are a helpful chatbot trained on Youtube videos.
-Answer the user's question clearly and precisely using the most relevant transcript below.
+Answer the user's question using only the transcript data below.
+If an answer cannot be found directly, say: 
+"I couldn't find that information in the provided videos."
 
 Context:
 {context}

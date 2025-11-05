@@ -23,15 +23,20 @@
       <p id="status"></p>
     </div>
 
-    <div id="chat-section" class="hidden">
-      <h2>💬 Chat with Your AI</h2>
-      <div id="chat-box">
-        <p class="bot">🤖 Bot: Hello! I'm ready. Ask me anything related to your videos.</p>
-      </div>
-      <input id="user-input" placeholder="Type your question...">
-      <button id="send-btn">Send</button>
+   <div id="chat-section" class="chat-container hidden">
+  <h2 class="chat-title">💬 Chat with Your AI Assistant</h2>
+  <div id="chat-box" class="chat-box">
+    <div class="message bot">
+      <span class="avatar">🤖</span>
+      <div class="bubble">Hello! I'm ready. Ask me anything related to your videos.</div>
     </div>
   </div>
+
+  <div class="input-container">
+    <input id="user-input" type="text" placeholder="Type your question..." autocomplete="off">
+    <button id="send-btn" class="send-btn">Send</button>
+  </div>
+</div>
 
   <script src="{{ url_for('static', filename='script.js') }}"></script>
 </body>

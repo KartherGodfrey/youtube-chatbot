@@ -91,3 +91,6 @@ document.addEventListener("DOMContentLoaded", () => {
   sendBtn.addEventListener("click", sendMessage);
   userInput.addEventListener("keypress", e => { if(e.key==="Enter") sendMessage(); });
 });
+
+const chatBox = document.getElementById("chat-box");
+chatBox.scrollTop = chatBox.scrollHeight;

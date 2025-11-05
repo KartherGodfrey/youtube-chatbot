@@ -1,0 +1,9 @@
+Flask==3.0.3
+python-dotenv==1.0.1
+openai==1.42.0
+pandas==2.2.3
+joblib==1.4.2
+yt-dlp==2024.10.22
+imageio-ffmpeg==0.5.1
+numpy==1.26.4
+tqdm==4.66.5
