@@ -2,55 +2,199 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>YouTube Chatbot</title>
   <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
 </head>
 <body>
-
-  <!-- 🌌 Landing Page -->
-  <section id="landing-page" class="page active">
-    <canvas id="aurora-bg"></canvas>
-    <div class="landing-content">
-      <h1 class="glow-text">🤖 YouTube Chatbot</h1>
-      <p class="subtitle">Train an AI chatbot on YouTube videos and chat with it, all in one sleek interface.</p>
-      <button id="get-started" class="neon-btn">Get Started</button>
+  <!-- Splash Screen -->
+  <div id="splash-screen">
+    <div class="splash-logo">
+      <div class="splash-logo-inner">YC</div>
     </div>
-  </section>
+    <div class="splash-text">YouTube Chatbot</div>
+    <div class="splash-subtext">AI-Powered Video Conversations</div>
+    <div class="loading-bar">
+      <div class="loading-progress"></div>
+    </div>
+      <div class="watermark">Developed by Muhammad Usman Khan</div>
+  </div>
 
-  <!-- ⚙️ Training Page -->
-  <section id="train-page" class="page hidden">
-    <div class="container glass fade-in">
-      <h1>🚀 Train Your Chatbot</h1>
-      <input id="chatbot_name" placeholder="Enter chatbot name..." class="input-field">
-      <div id="video_inputs">
-        <div class="video-group">
-          <input placeholder="YouTube URL" class="input-field">
-          <input placeholder="Video Name" class="input-field">
+  <!-- Particles -->
+  <canvas id="particles"></canvas>
+
+  <!-- Landing Page -->
+  <section id="landing-page" class="page hero hidden">
+    <div class="stage">
+      <!-- LEFT: YouTube Chatbot card -->
+      <div class="card-landing" role="region" aria-label="YouTube Chatbot">
+        <div class="brand">
+          <div class="logo">YC</div>
+          <div>
+            <h1 style="margin:0">YouTube Chatbot</h1>
+            <p style="margin-top:6px;color:var(--muted)">Train on any YouTube video, then chat with your content.</p>
+          </div>
+        </div>
+
+        <div class="hero-title">Converse with your videos instantly.</div>
+        <div class="hero-sub">Upload (paste) video links, give them friendly names, and the AI will transcribe, index, and answer questions, all via a polished RAG-style assistant.</div>
+
+        <div class="cta-row">
+          <button id="getStarted" class="btn btn-primary" title="Get Started">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" style="transform:translateY(1px)"><path d="M5 12h14" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"/></svg>
+            Get Started
+          </button>
+          <button id="learnMore" class="btn btn-ghost">How it works</button>
+        </div>
+
+        <div class="features" aria-hidden="true">
+          <div class="chip">Whisper transcription</div>
+          <div class="chip">Embeddings (joblib)</div>
+          <div class="chip">Gemini answers</div>
+          <div class="chip">RAG retrieval</div>
+        </div>
+
+        <!-- small illustration -->
+        <div style="margin-top:18px; display:flex; gap:10px; align-items:center;">
+          <div style="flex:1">
+            <div style="height:10px; background:linear-gradient(90deg,var(--accent),transparent); border-radius:6px; width:70%"></div>
+            <div style="height:8px; background:rgba(255,255,255,0.02); border-radius:6px; margin-top:8px;"></div>
+            <div style="height:8px; background:rgba(255,255,255,0.02); border-radius:6px; margin-top:6px; width:60%"></div>
+          </div>
+          <div style="width:88px; height:66px; border-radius:10px; background:linear-gradient(90deg, rgba(0,255,151,0.06), rgba(0,255,151,0.02)); border:1px solid rgba(0,255,151,0.06)"></div>
         </div>
       </div>
-      <button id="add_video" class="small-btn">+ Add More</button>
-      <button id="train_btn" class="neon-btn">Train Chatbot</button>
-      <div id="loader" class="loader hidden"></div>
-      <p id="status"></p>
+
+      <!-- RIGHT: Demo Preview -->
+      <div class="demo-panel" role="region" aria-label="Demo Preview">
+        <div style="text-align: center; padding: 20px;">
+          <div style="font-size: 18px; font-weight: 600; margin-bottom: 16px; color: var(--accent)">Interactive Demo</div>
+          <div style="font-size: 14px; color: var(--muted); margin-bottom: 30px;">
+            See how the chatbot works with your YouTube content
+          </div>
+          
+          <!-- Mock chat preview -->
+          <div style="background: rgba(0,0,0,0.2); border-radius: 12px; padding: 16px; margin-bottom: 20px;">
+            <div style="display: flex; gap: 10px; margin-bottom: 12px;">
+              <div style="width: 32px; height: 32px; border-radius: 50%; background: var(--accent); display: flex; align-items: center; justify-content: center; font-size: 14px;">🤖</div>
+              <div style="background: rgba(255,255,255,0.1); padding: 10px 14px; border-radius: 12px; font-size: 13px; max-width: 70%;">
+                Hello! I can answer questions about your YouTube videos.
+              </div>
+            </div>
+            <div style="display: flex; gap: 10px; justify-content: flex-end;">
+              <div style="background: rgba(0,255,151,0.1); padding: 10px 14px; border-radius: 12px; font-size: 13px; max-width: 70%; color: var(--accent);">
+                What's the main topic discussed?
+              </div>
+              <div style="width: 32px; height: 32px; border-radius: 50%; background: rgba(255,255,255,0.1); display: flex; align-items: center; justify-content: center; font-size: 14px;">👤</div>
+            </div>
+          </div>
+
+          <div style="display: flex; gap: 8px; justify-content: center;">
+            <div class="chip" style="background: rgba(0,255,151,0.05); color: var(--accent); border-color: rgba(0,255,151,0.1);">Train on multiple videos</div>
+            <div class="chip" style="background: rgba(0,255,151,0.05); color: var(--accent); border-color: rgba(0,255,151,0.1);">Ask natural questions</div>
+          </div>
+        </div>
+      </div>
     </div>
   </section>
 
-  <!-- 💬 Chat Page -->
-  <section id="chat-page" class="page hidden">
-    <div class="chat-container glass fade-in">
-      <h2 class="chat-title">💬 Chat with Your AI Assistant</h2>
-      <div id="chat-box" class="chat-box">
-        <div class="message bot">
-          <span class="avatar">🤖</span>
-          <div class="bubble">Hello! I'm ready to answer your questions about the videos you trained me on.</div>
+  <!-- Training Page -->
+  <section id="train-page" class="page train-page hidden">
+    <button class="back-btn" id="back-to-landing">
+      <svg width="16" height="16" viewBox="0 0 24 24" fill="none">
+        <path d="M19 12H5M12 19l-7-7 7-7" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+      </svg>
+      Back
+    </button>
+
+    <div class="train-container">
+      <div class="panel">
+        <div style="text-align: center; margin-bottom: 24px;">
+          <div style="font-size: 24px; font-weight: 700; color: var(--accent); margin-bottom: 8px;">Train Your Chatbot</div>
+          <div style="font-size: 14px; color: var(--muted);">Add YouTube videos and train your AI assistant</div>
         </div>
-      </div>
-      <div class="input-container">
-        <input id="user-input" type="text" placeholder="Type your question..." autocomplete="off">
-        <button id="send-btn" class="send-btn">Send</button>
+
+        <!-- Setup form -->
+        <div id="setup">
+          <div style="display:flex;justify-content:space-between; align-items:center;">
+            <div style="flex: 1;">
+              <div class="small-muted">Chatbot Name</div>
+              <input id="chatbotName" class="input" placeholder="e.g. Dr. Israr Bot" />
+            </div>
+          </div>
+
+          <div style="margin-top:20px;">
+            <div class="small-muted">YouTube links (URL + friendly name)</div>
+            <div class="video-list" id="videoList" aria-live="polite">
+              <div class="video-item">
+                <input class="input-sm input youtube-url" placeholder="YouTube URL (https://...)" />
+                <input class="input-sm input video-name" placeholder="Friendly name (e.g. Lecture 1)" />
+              </div>
+            </div>
+            <div style="margin-top:16px; display:flex; gap:8px; align-items:center;">
+              <button id="addVideo" class="add-video">+ Add link</button>
+              <div style="flex:1"></div>
+              <button id="trainBtn" class="btn btn-primary">Train Chatbot</button>
+            </div>
+            <div class="small-muted" style="margin-top:12px">This will download, transcribe, and index your videos for the chatbot.</div>
+          </div>
+        </div>
+
+        <!-- training overlay -->
+        <div id="training" class="training-overlay" role="status" aria-hidden="true">
+          <div style="text-align:center">
+            <div class="loader">
+              <div class="spinner" role="progressbar" aria-label="Training"></div>
+            </div>
+            <div class="training-text" id="training-status">Training your assistant — transcribing & indexing videos...</div>
+          </div>
+        </div>
       </div>
     </div>
   </section>
+
+  <!-- Chat Page -->
+  <section id="chat-page" class="page chat-page hidden">
+    <button class="back-btn" id="back-to-train">
+      <svg width="16" height="16" viewBox="0 0 24 24" fill="none">
+        <path d="M19 12H5M12 19l-7-7 7-7" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+      </svg>
+      Back to Training
+    </button>
+
+    <div class="chat-container">
+      <div class="panel chat-wrap">
+        <div style="display:flex; justify-content:space-between; align-items:center;">
+          <div>
+            <div style="font-weight:700; font-size:18px" id="chatbot-title">YouTube Chatbot</div>
+            <div style="font-size:12px; color:var(--muted)">Ask questions about your videos</div>
+          </div>
+          <div style="display:flex; gap:8px; align-items:center;">
+            <div style="font-size:12px; color:var(--muted)">Status: <strong style="color:var(--accent)" id="chat-status">Ready</strong></div>
+          </div>
+        </div>
+
+        <div id="chatBox" class="chat-box" aria-live="polite" role="log">
+          <!-- initial bot message -->
+          <div class="msg bot">
+            <div class="bubble bot">
+              Hello! I'm ready — ask me anything about the videos you've added.
+            </div>
+          </div>
+        </div>
+
+        <div class="input-row">
+          <input id="userInput" class="chat-input" placeholder="Type your question..." />
+          <button id="sendBtn" class="send-btn" title="Send">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none"><path d="M3 12l18-9-9 18-2-8-7-1z" fill="currentColor"/></svg>
+          </button>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Single Watermark for all pages -->
+  <div class="watermark">Developed by Muhammad Usman Khan</div>
 
   <script src="{{ url_for('static', filename='script.js') }}"></script>
 </body>
